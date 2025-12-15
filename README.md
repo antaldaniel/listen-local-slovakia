@@ -99,6 +99,8 @@ The bibliographic references are organised by themese, and they are stored in th
 
 -   `bib/IFPI.bib`: bibliographic entries related to IFPI resources.
 
+-   `bib/ISOdata.bib`: ISO standards related to (music) data.
+
 -   `bib/metadata.bib`: metadata theories and policies.
 
 -   `bib/musicindustry.bib`: bibliographic sources on the music industry.
