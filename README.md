@@ -1,9 +1,3 @@
----
-editor: 
-  markdown: 
-    wrap: 80
----
-
 # Open Music Slovakia
 
 This is a `public` repository for the Open Music Europe activities in Slovakia.
@@ -96,6 +90,8 @@ The bibliographic references are organised by themese, and they are stored in th
 -   `bib/europolicies.bib`: EU policy documents
 
 -   `bib/europeana.bib`: bibliographic entries for Europeana-related documents.
+
+-   `bib/eXtremeDesign.bib`: bibliographic entries related to the eXtremeDesign methodology.
 
 -   `bib/identifiers.bib`: bibliographic entries on identifiers and PID policies.
 
