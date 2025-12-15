@@ -79,6 +79,8 @@ The bibliographic references are organised by themese, and they are stored in th
 
 -   `bib/dataspace.bib`: bibliographic entries for the data (sharing) space concept.
 
+-   `bib/decolonisation.bib`: decolonisation (in a cultural heritage and stewardship context.)
+
 -   `bib/dcat.bib`: bibliographic entries for data catalogues.
 
 -   `bib/ddi.bib`: bibliographic entries for the Data Description Initiative.
@@ -97,9 +99,15 @@ The bibliographic references are organised by themese, and they are stored in th
 
 -   `bib/IFPI.bib`: bibliographic entries related to IFPI resources.
 
+-   `bib/metadata.bib`: metadata theories and policies.
+
+-   `bib/musicindustry.bib`: bibliographic sources on the music industry.
+
 -   `bib/mme.bib`: Music Moves Europe policy documents bibliography.
 
 -   `bib/livonians.bib`: Bibliography connected to the Livonian Music Database.
+
+-    `bib/opa.bib`: bibliography on the Open Policy Analysis Guidelines.
 
 -   `bib/opendata.bib`: bibliography on the EU open data policies and regulations.
 
