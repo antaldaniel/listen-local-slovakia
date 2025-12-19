@@ -75,6 +75,8 @@ The bibliographic references are organised by themese, and they are stored in th
 
 -   `bib/collections.bib`: bibliographic entries for theories and conceptualisations of collections.
 
+-   `bib/datagovernance.bib`: bibliographic entries for data governance.
+
 -   `bib/datamodels.bib`: bibliographic entries for data models.
 
 -   `bib/dataspace.bib`: bibliographic entries for the data (sharing) space concept.
@@ -120,6 +122,8 @@ The bibliographic references are organised by themese, and they are stored in th
 -   `bib/ossh.bib`: open-source software and hardware bibliography.
 
 -   `bib/privatelyhelddata.bib` on the coordination of privately held and government statistical data.
+
+-   `bib/trustworthyAI.bib` bibliography on trustworthy use of artificial intelligence.
 
 -   `bib/wikidata.bib` bibliography on the use of Wikidata and Wikibase.
 
