@@ -779,6 +779,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 
 : Pseudonym {tbl-colwidths="\[30,70\]\]"}
 
+<<<<<<< HEAD
 ### Repertoire Data {.unnumbered}
 
 #### Sound recordings {.unnumbered}
@@ -786,6 +787,14 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 A **sound recording** is the actual captured sound: a specific audio performance fixed in a sound file or master. Under the ISRC (International Standard Recording Code) standard, each distinct sound recording is identified by a unique ISRC. Different edits, remasters, or versions of the same performance typically receive different ISRCs, because they represent different sound recordings [@iso_isrc_2019].
 
 #### Recording Title {.unnumbered}
+=======
+## Repertoire Data  {.unnumbered}
+
+### Sound recordings  {.unnumbered}
+
+A **sound recording** is the actual captured sound: a specific audio performance fixed in a sound file or master. Under the ISRC (International Standard Recording Code) standard, each distinct sound recording is identified by a unique ISRC. Different edits, remasters, or versions of the same performance typically receive different ISRCs, because they represent different sound recordings [@iso_isrc_2019].
+
+### Recording Title {.unnumbered}
 
 +--------------------+-----------------------------------------------------------+
 | variable name      | recording_title                                           |
@@ -796,6 +805,7 @@ A **sound recording** is the actual captured sound: a specific audio performance
 +--------------------+-----------------------------------------------------------+
 | notes              | May be multilingual; language tags are applied when known |
 +--------------------+-----------------------------------------------------------+
+
 
 #### Normalised Recording Title (Identifier-style Alias)
 
@@ -808,6 +818,7 @@ A **sound recording** is the actual captured sound: a specific audio performance
 +--------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | notes              | Derived from `recording_title` by applying ASCII-only, uppercase normalization for identifier-style matching and reconciliation. This variable is an alias of the recording title, not a distinct work or title statement, and carries no ontological role. It is intended solely for technical matching, joining, and comparison, not for presentation or authoritative naming. |
 +--------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 #### Artist Name (Display Artist) {.unnumbered}
 
@@ -823,6 +834,7 @@ A **sound recording** is the actual captured sound: a specific audio performance
 
 #### Normalised Artist Name (Identifier-style Alias)
 
+
 +--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | normalised_artist_name                                                                                                                                                                                                                                                                                                                        |
 +--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -834,6 +846,7 @@ A **sound recording** is the actual captured sound: a specific audio performance
 +--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #### Recording Lyrics Language {.unnumbered}
+
 
 The recording lyrics language is only added to the Slovak, Livonian, and Karelian datasets.
 
@@ -848,6 +861,7 @@ The recording lyrics language is only added to the Slovak, Livonian, and Karelia
 +--------------------+--------------------------------------------------------------------------+
 
 #### Duration {.unnumbered}
+
 
 +--------------------+------------------------------------------------------------------------------+
 | variable name      | duration                                                                     |
@@ -877,6 +891,8 @@ The recording lyrics language is only added to the Slovak, Livonian, and Karelia
 
 #### Country of ISRC Registration {.unnumbered}
 
+
+
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | isrc_country_code                                                                                                                                                                  |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -889,6 +905,7 @@ The recording lyrics language is only added to the Slovak, Livonian, and Karelia
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #### ISRC Registrant Code {.unnumbered}
+
 
 For details on ISRC registration please see *International Standard Recording Code (ISRC} Handbook. 4th Edition.* [@isrc_handbook_2021]
 
@@ -904,6 +921,7 @@ For details on ISRC registration please see *International Standard Recording Co
 
 #### Year of ISRC Registration {.unnumbered}
 
+
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | isrc_reference_year                                                                                                                                                                |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -914,7 +932,9 @@ For details on ISRC registration please see *International Standard Recording Co
 | notes              | This is the ISRC assignment year, not the recording year or release year                                                                                                           |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+
 #### ISRC Country Code {.unnumbered}
+
 
 The ISRC country code does not refer to a country as a geopolitical entity, but to an organisation that registers sound recordings with a territorial jurisdiction. For example, *Association of Hungarian Record Companies* (Mahasz, [omo:Q2035](https://reprexbase.eu/openmusic/Item:Q2035) ), the Hungarian national IPI Group member, handles the ISRC codes starting with `HU`. In this respect, the `HU` part of the ISRC code does not refer to Hungary but to Mahasz.
 
@@ -932,6 +952,7 @@ In most cases, `HU` and other ISRC country codes coincide with the country code 
 
 #### ISRC Registration Country {.unnumbered}
 
+
 For example, *Association of Hungarian Record Companies* (Mahasz, [omo:Q2035](https://reprexbase.eu/openmusic/Item:Q2035) ), handles the registrations on the territory of Hungary. Whenever the top-level registrar corresponds with a geopolitical entity, we placed the entity's name in this variable, including non-sovereign entities like Hong Kong or French Southern Territories. The non-territorial codes are marked with *No agency \[exception\]*.
 
 Our aim was the study of Slovak and Hungarian registrations in and outside of their registrars, and the algorithms we used collected a lot of identifiers that fell out of the scope of these countries.
@@ -948,6 +969,7 @@ Our aim was the study of Slovak and Hungarian registrations in and outside of th
 
 #### ISRC Designation Code {.unnumbered}
 
+
 This range usually identifies a label or a rights management company that handles recording-side royalties. The reason why they cannot be directly mapped to labels is that certain designation codes were allocated to labels that were dissolved, or merged into newer entities, or have other successors. They can be seen as a provenance variable for the particular registration. Unfortunately, we know that often the same recording receives new ISRC codes when the previous registering body or its administration recards are no longer available.
 
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -962,6 +984,7 @@ This range usually identifies a label or a rights management company that handle
 
 #### Spotify Track ID {.unnumbered}
 
+
 +--------------------+----------------------------------------------------------------------------------------------------+
 | variable name      | spotify_track_id                                                                                   |
 +--------------------+----------------------------------------------------------------------------------------------------+
@@ -974,11 +997,13 @@ This range usually identifies a label or a rights management company that handle
 
 ### Release {.unnumbered}
 
+
 A **release** is a packaged publication of one or more recordings made available to the public. In DDEX terminology, a release groups recordings together in a specific commercial or distribution context, such as an album, single, EP, or digital compilation. The same recording can appear on multiple releases (for example, an album release, a single release, and a compilation), while retaining the same ISRC.
 
 Unfortunately, as our research shows, new releases often receive a new ISRC code.
 
 #### Release Year {.unnumbered}
+
 
 +--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | release_year                                                                                                                                                             |
@@ -992,6 +1017,7 @@ Unfortunately, as our research shows, new releases often receive a new ISRC code
 
 #### Release Name {.unnumbered}
 
+
 +--------------------+-----------------------------------------------------------------------------+
 | variable name      | release_title                                                               |
 +--------------------+-----------------------------------------------------------------------------+
@@ -1003,6 +1029,7 @@ Unfortunately, as our research shows, new releases often receive a new ISRC code
 +--------------------+-----------------------------------------------------------------------------+
 
 #### Normalised Release Name (Identifier-style Alias) {.unnumbered}
+
 
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | normalised_release_title                                                                                                                                                                                                                                                                                                                                                                    |
@@ -1016,6 +1043,7 @@ Unfortunately, as our research shows, new releases often receive a new ISRC code
 
 #### Release Type {.unnumbered}
 
+
 +--------------------+-------------------------------------------------------------------------------+
 | variable name      | release_type                                                                  |
 +--------------------+-------------------------------------------------------------------------------+
@@ -1027,6 +1055,7 @@ Unfortunately, as our research shows, new releases often receive a new ISRC code
 +--------------------+-------------------------------------------------------------------------------+
 
 #### UPC or EAN {.unnumbered}
+
 
 The *Open Music Europe – ISRC-Sampled Sound Recording Metadata* does not contain release identifiers, and not in all cases in the smaller datasets.
 
@@ -1055,5 +1084,6 @@ We provide this information when it is given. It is not provided in the Open Mus
 +--------------------+------------------------------------------------------------------------------------------------+
 
 #### Label Identifier (Curated) {.unnumbered}
+
 
 This information is not given in the case of the *Open Music Europe – ISRC-Sampled Sound Recording Metadata*, and not in all cases in the smaller datasets.
