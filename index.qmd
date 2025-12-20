@@ -32,7 +32,7 @@ format:
    docx: 
      toc-depth: 2 
      citation-style: chicago-author-date.csl
-     output-file: music-heritage-policy-ai_v0_4.docs
+     output-file: music-heritage-policy-ai_v0_4.docx
    pdf:
     colorlinks: true
     toc: true
@@ -41,7 +41,7 @@ format:
     latex: 
        - lof: true
 
-doi: 10.5281/zenodo.17922390
+doi: 10.5281/zenodo.17999571
 
 papersize: A4
 
@@ -74,6 +74,8 @@ bibliography:
   - bib/sampo.bib
 ---
 
+{{< pagebreak >}}
+
 ### Abstract {.unnumbered}
 
 Across Europe and other advanced music markets, cultural policy instruments such as local content quotas, diversity targets, and equality pledges are widely used to sustain domestic cultural ecosystems. As discussed in the OpenMusE *Green Paper on AI, Data Governance, and Metadata Policies for Europe’s Music Ecosystem*, these instruments have repeatedly struggled at the point of implementation, particularly under conditions of platform scale and data protection constraints. Broadcasters, festival organisers, and other cultural intermediaries are expected to meet quantitative targets, yet they often lack reliable, auditable, and legally safe tools to assess compliance in practice.
@@ -95,7 +97,7 @@ Please note that this document puts the Open Music Observatory, a prototype of a
 
 **Funding acknowledgement:** This project has received funding from the European Union’s Horizon Europe programme under Grant Agreement No. [101095295](https://cordis.europa.eu/project/id/101095295). The views expressed are those of the authors only and do not necessarily reflect those of the European Commission or its agencies[^2].
 
-**Citation note:** When citing this document, please use the latest **versioned DOI** available on Zenodo (current version: [10.5281/zenodo.17922390](https://zenodo.org/records/17922390)), and include the date of access if referring to material hosted on our GitHub repository.[^3] This is an early 0.2.0 version.)
+**Citation note:** When citing this document, please use the latest **versioned DOI** available on Zenodo (current version: [10.5281/zenodo.17999571](https://doi.org/10.5281/zenodo.17999571)), and include the date of access if referring to material hosted on our GitHub repository.[^3] This is an early 0.4.0 version.)
 :::
 
 [^1]: The *Guidelines for Open Policy Analysis* form an actionable and practical set of directives that the OpenMusE consoritum was mandated to use under the Grant Agreement. It can be seen as good implementation framework for *Evidence-based policy making in the European Commission* and *The practice of reproducible research* [@opa_guidelines; @openmuse_2023; [@evidence_based_policy_eu_2015; @practice_of_reproducible_research_2018].
@@ -105,6 +107,8 @@ Please note that this document puts the Open Music Observatory, a prototype of a
     (b) assumes responsibility for any damages or other liability whatsoever (including any consequential damages, even if advised of the possibility) resulting from your selection or use of this document or any information, apparatus, method, process, or similar item disclosed herein.
 
 [^3]: Always use the latest versioned DOI when citing this document, available via Zenodo. If you rely on supporting material hosted in the GitHub repository, please add the date of access in your reference.
+
+{{< pagebreak >}}
 
 ## Introduction {#sec-introduction}
 
@@ -136,6 +140,8 @@ This paper proceeds as follows.
 
 The paper concludes by discussing implications for European cultural policy, data governance, and the future development of the *Open Music Observatory* as a prototype European Music Observatory within the EU Culture Data Hub.
 
+{{< pagebreak >}}
+
 ## Findings of the Feasibility Phase {#sec-feasibility}
 
 The *Feasibility Study On Promoting Slovak Music In Slovakia & Abroad*[^4] identified a persistent and structural gap between the normative ambitions of cultural policy and the operational realities of music dissemination. While local content quotas and diversity objectives are typically articulated in legal or institutional terms, they are rarely accompanied by a technical or methodological framework that would allow their consistent application in everyday editorial practice. This gap was not merely practical, but conceptual: policy definitions often relied on categories that could not be coherently mapped onto the objects actually circulated by media platforms.
@@ -160,7 +166,11 @@ The feasibility study therefore concluded that sustainable implementation requir
 
 This conclusion marked a decisive reframing of the problem. Local content and diversity policies could no longer be treated as matters of editorial judgement alone, nor as enforcement exercises aimed at individuals. Instead, they emerged as **intersectional information design problems**: how to construct reference infrastructures that translate policy rules into computable properties of cultural artefacts, while respecting non-discrimination, data protection, institutional competence, and the complex social realities of European cultural production. Crucially, this reframing also opened a path toward indicators that can be aggregated, compared, and reused beyond a single national context, providing the conceptual and methodological preconditions for diversity and circulation metrics capable of informing European-level data infrastructure.
 
+{{< pagebreak >}}
+
 ## Policy Context and Relationship to the Green Paper {#sec-policy}
+
+This section situates the present implementation work within the broader European cultural and data policy landscape. It clarifies how the *Open Music Observatory* and its Slovak, Hungarian, Polish, Finno-Ugric subnational and pan-European central modules relate to ongoing EU initiatives, including the *Culture Compass for Europe*, the planned *EU Culture Data Hub*, and recent work on copyright data governance. Rather than restating the policy analysis developed in the OpenMusE project's *Green Paper*, the section explains how this paper should be read as a complementary, implementation-level contribution that operationalises key policy insights through concrete data infrastructures.
 
 ### European Cultural Policy Framework: Compass, Data Hub, and Music as a Forerunner
 
@@ -246,7 +256,11 @@ The focus on diversity and circulation in this paper should therefore be underst
 
 In this sense, diversity-oriented observability functions as an early and demanding use case. If an infrastructure can support reliable measurement of circulation and representation under strict legal and ethical constraints, it can also support more conventional economic indicators. The diversity and circulation pillar of the Open Music Observatory thus serves both as a policy-relevant implementation in its own right and as a proxy for the broader economic health of the European music ecosystem.
 
+{{< pagebreak >}}
+
 ## From Policy to Implementation: Governance, Architecture, and Semantic Design {#sec-governance}
+
+This section explains how abstract policy objectives are translated into concrete technical and organisational choices. It shows how governance arrangements, system architecture, and semantic design are treated not as downstream technical matters, but as primary implementation mechanisms shaped by legal constraints, institutional competences, and the principle of subsidiarity. The subsections that follow describe how governance-by-design, layered architectures, and modular semantic patterns jointly enable policy-relevant observability without centralising authority or exposing sensitive data.
 
 ### Governance as an Implementation Method
 
@@ -352,7 +366,11 @@ This approach directly reflects feedback from IAML and IAMIC consultations, wher
 
 In this sense, semantic design performs the same function for music diversity and circulation as the layered infrastructure does for copyright data in the *CITF First Project* (see @sec-citf-first-project). In both cases, policy translation depends on making concepts computable without collapsing institutional differences. The music case demonstrates that, as policy questions become more complex—combining cultural diversity, rights management, and algorithmic mediation—semantic design must explicitly account for organisational workflows and use contexts. This makes it a central implementation method, not a downstream technical detail.
 
+{{< pagebreak >}}
+
 ## Methodological Considerations {#sec-methodology}
+
+This section outlines the methodological foundations that underpin the design and operation of the *Open Music Observatory*. It clarifies the modelling assumptions, interoperability strategies, and publication practices that allow heterogeneous institutional data to be combined into reproducible, auditable indicators. Rather than proposing a universal or exhaustive model of music data, the methodology emphasises selective representation, provenance awareness, and cross-context validation, ensuring that analytical results remain interpretable, legally robust, and transferable across national and community settings.
 
 ### Data Modelling and Representation
 
@@ -414,7 +432,7 @@ This publication strategy aligns with European data governance principles that p
 
 ### Cross-Context Validation
 
-The methodological choices underpinning the Open Music Observatory were not validated in isolation, but through sustained application across multiple institutional, cultural, and governance contexts. Validation, in this sense, does not mean optimisation within a single controlled environment, but resilience under variation: methods are considered robust insofar as they continue to function when confronted with different legal regimes, institutional capacities, cultural repertoires, and scales of operation.
+The methodological choices underpinning the *Open Music Observatory* were not validated in isolation, but through sustained application across multiple institutional, cultural, and governance contexts. Validation, in this sense, does not mean optimisation within a single controlled environment, but resilience under variation: methods are considered robust insofar as they continue to function when confronted with different legal regimes, institutional capacities, cultural repertoires, and scales of operation.
 
 The Slovak implementation provides a validation context characterised by relatively strong national institutions, clear cultural policy instruments, and established cooperation between ministries, collective management organisations, libraries, and sectoral bodies. In this setting, methods could be tested against concrete policy questions—such as local content measurement—under realistic governance and data protection constraints. The Hungarian replication introduced a different validation axis. Strong archival traditions, ethnomusicological collections, and divergent institutional histories required adaptation of modelling and governance assumptions, particularly in relation to archival provenance, contextualisation, and rights uncertainty. The fact that core methods remained applicable under these conditions supports their transferability beyond a single national model.
 
@@ -433,6 +451,8 @@ Our work was presented in the Technology sessions of the *Wikimedia CEE Meeting 
 Taken together, these validation contexts demonstrate that the methodological framework of the *Open Music Observatory* is neither tailored to a single institutional configuration nor abstracted away from practice. Its robustness derives from being tested across national, subnational, community, and supranational settings, and from remaining adaptable without losing analytical coherence. This capacity for cross-context operation is essential if music observability is to function as a credible forerunner for wider European cultural data infrastructures.
 
 Through this engagement, we established working relationships with several national Wikimedia chapters and with the Wikidata and Abstract Wikipedia teams, and participated in the *Wikidata Ontology Cleanup Task Force* and the *Wikidata Mereology Task Force*. This involvement helped align our ontological patterns, identifier practices, and documentation strategies with broader open knowledge standards, while also ensuring that our approach to provenance, uncertainty, and institutional responsibility remains compatible with community-driven curation environments.
+
+{{< pagebreak >}}
 
 ## Diversity Goals Without Exposure of Sensitive Data {#sec-sensitive-data}
 
@@ -573,6 +593,8 @@ Importantly, the architecture also supports asymmetry between modules. Not all i
 
 By deriving its technical structure from governance and policy constraints rather than imposing them retroactively, the SKCMDb architecture ensures that diversity-aware cultural policy objectives can be supported without compromising data protection, institutional autonomy, or ethical commitments. At the same time, it creates a clear and auditable pathway from authoritative microdata to aggregated indicators. This makes it possible to demonstrate the system’s capabilities through concrete empirical applications. The following section presents such an application, applying the SKCMDb infrastructure to the computation of local content indicators derived from official Slovak music charts.
 
+{{< pagebreak >}}
+
 ## Case Study: Computing Local Content Indicators from Official Charts {#sec-case-study}
 
 This section presents an empirical application of the SKCMDb infrastructure to demonstrate how diversity- and locality-related indicators can be computed reproducibly, lawfully, and without exposing sensitive personal data. The case study applies the methodological, governance, and architectural principles developed in the preceding sections to an authoritative, real-world dataset: the official Slovak music charts. Its purpose is not to evaluate individual actors or enforce compliance, but to show how a shared reference infrastructure can support informed, voluntary, and legally robust engagement with cultural policy objectives.
@@ -645,10 +667,14 @@ Several limitations of the present work should be acknowledged. First, the indic
 
 Looking forward, this work contributes to the ongoing development of the Open Music Observatory as a prototype for a future European Music Observatory. Its diversity pillar, of which SKCMDb constitutes a substantial part, demonstrates how European values of data governance—subsidiarity, proportionality, data sovereignty, and ethical stewardship—can be operationalised in practice. The inclusion of Finno-Ugric musical heritage, extending beyond the geographical boundaries of Europe, further underscores that “European” in this context denotes a governance philosophy rather than a territorial limitation. Future research and development efforts will focus on expanding the range of indicators, refining rights-aware modelling, and exploring integrations with emerging AI governance frameworks. In doing so, the aim is not to replace editorial judgement or cultural expertise, but to augment them with infrastructures that make diversity goals computable, auditable, and actionable under real-world conditions. By treating cultural policy as a shared infrastructural challenge rather than a zero-sum regulatory contest, the approach presented here offers a constructive path toward more inclusive, resilient, and transparent cultural ecosystems in Europe and beyond.
 
+{{< pagebreak >}}
+
 ## References
 
 ::: {#refs}
 :::
+
+{{< pagebreak >}}
 
 ## Annex A: Data Used
 
