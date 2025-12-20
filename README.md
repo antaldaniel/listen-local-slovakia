@@ -123,6 +123,8 @@ The bibliographic references are organised by themese, and they are stored in th
 
 -   `bib/privatelyhelddata.bib` on the coordination of privately held and government statistical data.
 
+-   `bib/sampo.bib` bibliography on the Sampo semantic browser. 
+
 -   `bib/trustworthyAI.bib` bibliography on trustworthy use of artificial intelligence.
 
 -   `bib/wikidata.bib` bibliography on the use of Wikidata and Wikibase.

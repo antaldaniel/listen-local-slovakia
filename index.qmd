@@ -5,7 +5,20 @@ project:
   type: website
   output-dir: docs
 editor: source
-version: "0.3.1"
+version: "0.4.0"
+author:
+  - name: "Antal, Dániel"
+    orcid: 0000-0001-7513-6760
+    role: author
+  - name: "Jankovič, Marián"
+    orcid: 0009-0003-6326-226X
+    role: author
+  - name: "Mester, Anna Márta"
+    orcid: 0000-0003-1726-0928
+    role: data manager
+  - name: "Mikš, Tomaš"
+    orcid: 0009-0004-7686-4611
+    role: Task Leader
 format: 
    html: 
      toc: true
@@ -14,17 +27,17 @@ format:
    epub: 
      toc: true
      toc-depth: 3
-     output-file: music-heritage-policy-ai_v0_31.epub
+     output-file: music-heritage-policy-ai_v0_4.epub
      citation-style: chicago-author-date.csl
    docx: 
      toc-depth: 2 
      citation-style: chicago-author-date.csl
-     output-file: music-heritage-policy-ai_v0_31.docs
+     output-file: music-heritage-policy-ai_v0_4.docs
    pdf:
     colorlinks: true
     toc: true
     toc-depth: 3
-    output-file: music-heritage-policy-ai_v0_31.pdf
+    output-file: music-heritage-policy-ai_v0_4.pdf
     latex: 
        - lof: true
 
@@ -58,6 +71,7 @@ bibliography:
   - bib/trustworthyAI.bib
   - bib/opa.bib
   - bib/OpenMusE.bib
+  - bib/sampo.bib
 ---
 
 ### Abstract {.unnumbered}
@@ -144,8 +158,6 @@ These observations further complicate the already problematic linkage between pe
 
 The feasibility study therefore concluded that sustainable implementation requires a **decoupling of internal evaluation from external disclosure**, informed by an intersectional understanding of power and inequality. Rather than exposing personal attributes or identity categories, a system must be able to evaluate eligibility internally—within a legally justified, institutionally competent, and ethically governed environment—and expose only the outcome of that evaluation at the level of the artefact. In this model, a recording may be labelled as meeting or not meeting a quota requirement, without revealing which contributor, which protected characteristic, or which intersection of attributes triggered eligibility.
 
-This conclusion marked a decisive reframing of the problem. Local content and diversity policies could no longer be treated as matters of editorial judgement alone, nor as enforcement exercises aimed at individuals. Instead, they emerged as **intersectional information design problems**: how to construct reference infrastructures that translate policy rules into computable properties of cultural artefacts, while respecting non-discrimination, data protection, institutional competence, and the complex social realities of European cultural production. This insight directly informed the subsequent architectural and governance choices underlying the Slovak Comprehensive Music Database and its federated extensions.
-
 This conclusion marked a decisive reframing of the problem. Local content and diversity policies could no longer be treated as matters of editorial judgement alone, nor as enforcement exercises aimed at individuals. Instead, they emerged as **intersectional information design problems**: how to construct reference infrastructures that translate policy rules into computable properties of cultural artefacts, while respecting non-discrimination, data protection, institutional competence, and the complex social realities of European cultural production. Crucially, this reframing also opened a path toward indicators that can be aggregated, compared, and reused beyond a single national context, providing the conceptual and methodological preconditions for diversity and circulation metrics capable of informing European-level data infrastructure.
 
 ## Policy Context and Relationship to the Green Paper {#sec-policy}
@@ -157,11 +169,6 @@ This paper takes the European Union’s emerging cultural policy framework as a 
 [^5]: *Regulation (EU) 2022/868 of the European Parliament and of the Council of 30 May 2022 on European data governance and amending Regulation (EU) 2018/1724* (Data Governance Act) [@regulation_dga_2022_868]
 
 !["Recognising the EU’s supporting role in the field of culture, this declaration affirms shared political commitments and responsibilities of the European Parliament, the Council of the European Union and the European Commission - within their respective competencies and in full compliance with EU law - based on the key directions set out in the Commission’s 2025 Culture Compass for Europe."](png/eupolicies/Draft_Joint_Declaration_Europe_for_Culture_6x4.png){width="100%" fig-align="center"}
-
-> 2\. Cultural and linguistic diversity are fundamental values on which the EU is founded. We commit to:\
-> • Supporting, celebrating and preserving the rich cultural and linguistic diversity of the European Union and its cultural sovereignty.\
-> • Promoting the full diversity of cultural content created in Europe, notably online and harnessing new technologies to ensure the visibility and discoverability of this content.\
-> *Draft Joint Declaration "Europe for Culture — Culture for Europe"* [@eu_culture_compass_joint_declaration_draft_2025]
 
 Within this framework, music constitutes a particularly suitable forerunner domain. Music is highly digitised, deeply platform-mediated, and characterised by complex cross-border circulation. At the same time, it combines strong public-interest objectives—such as diversity, cultural sovereignty, and fair remuneration—with mature sectoral institutions, including collective management organisations, national libraries, and public broadcasters. These characteristics make music an early stress test for the kinds of data infrastructures envisioned by the Culture Compass and the EU Culture Data Hub.
 
@@ -365,17 +372,19 @@ A foundational methodological decision is the explicit separation between differ
 
 The representation of agents—composers, performers, ensembles, producers, and institutions—is similarly constrained by policy and legal considerations. Personal attributes are not modelled for public exposure or direct analytical use. Instead, where policy criteria depend on characteristics of contributors, these are evaluated internally by competent institutions and expressed externally only through artefact-level outcomes (for example, whether a recording qualifies under a given policy rule). This modelling strategy supports lawful internal evaluation while avoiding the disclosure or stabilisation of sensitive personal data, aligning representation choices with governance and data protection requirements.
 
+![Graph databases allow to work with incomplete data, and they can connect into various person, work, or recording databases that follow a graph or relational structure. Their structure is optimised to increase knowledge, not to retrieve the same relations many times over, this is why they are usually used for knowledge bases.](png/graph/graph_with_music.png){fig-align="center"}
+
 To support interoperability across heterogeneous systems, the data model relies on graph-based representations rather than flat relational structures. Graphs provide the flexibility required to express multiple, overlapping relationships between works, recordings, agents, places, languages, and institutions without forcing a single hierarchy. At the same time, the model avoids ontological maximalism. Rather than adopting or extending a single comprehensive ontology, it uses modular patterns that can interoperate with existing standards where needed and remain silent where alignment would add complexity without policy value.
 
 Crucially, representation is designed to distinguish between authoritative assertions and derived analytical statements. Authoritative data—such as identifiers, catalogue records, or rights-related facts—remains anchored to its source institution and is referenced with explicit provenance. Analytical representations, including inferred relationships or eligibility outcomes, are treated as derived artefacts that can be regenerated, revised, or withdrawn as methods evolve. This distinction enables reproducibility, auditability, and institutional trust, while ensuring that the data model remains adaptable to new policy questions and implementation contexts.
 
 ### Interoperability Mechanics
 
-Interoperability in the Open Music Observatory is treated as a practical coordination problem rather than a purely semantic or technical one. Music-related data circulates across institutions with fundamentally different mandates, workflows, and legal responsibilities: collective management organisations, libraries, archives, broadcasters, platforms, and community initiatives often rely on overlapping data elements while assigning them different meanings and operational roles. Full harmonisation—whether through a single schema or a unified database—is neither feasible nor desirable under these conditions. Instead, interoperability is achieved through negotiated alignment across systems that remain institutionally autonomous.
+Interoperability in the *Open Music Observatory* is treated as a practical coordination problem rather than a purely semantic or technical one. Music-related data circulates across institutions with fundamentally different mandates, workflows, and legal responsibilities: collective management organisations, libraries, archives, broadcasters, platforms, and community initiatives often rely on overlapping data elements while assigning them different meanings and operational roles. Full harmonisation—whether through a single schema or a unified database—is neither feasible nor desirable under these conditions. Instead, interoperability is achieved through negotiated alignment across systems that remain institutionally autonomous.
 
-Methodologically, this approach follows the logic of the European Interoperability Framework (EIF), which distinguishes legal, organisational, semantic, and technical layers. In the music domain, semantic alignment alone is insufficient unless it reflects organisational realities. For example, a library, a collective management organisation, and a digital distributor may all reference the same musical work or sound recording, yet do so for different purposes, under different legal regimes, and with different tolerance for uncertainty or incompleteness. Interoperability therefore requires making these differences explicit and bridgeable, rather than suppressing them. Semantic mappings are designed to respect divergent workflows while enabling shared reference where policy-relevant questions demand it.
+Methodologically, this approach follows the logic of the *European Interoperability Framework* (EIF), which distinguishes legal, organisational, semantic, and technical layers. In the music domain, semantic alignment alone is insufficient unless it reflects organisational realities. For example, a library, a collective management organisation, and a digital distributor may all reference the same musical work or sound recording, yet do so for different purposes, under different legal regimes, and with different tolerance for uncertainty or incompleteness. Interoperability therefore requires making these differences explicit and bridgeable, rather than suppressing them. Semantic mappings are designed to respect divergent workflows while enabling shared reference where policy-relevant questions demand it.
 
-At the technical level, interoperability is implemented through identifier reconciliation, controlled mappings between existing standards, and lightweight ontological patterns rather than comprehensive ontologies. The system is designed to interoperate selectively with DDEX-aligned industry metadata, ISRC-based recording identification, ISWC-based work identification used by CMOs[^27], and library- and archive-oriented standards such as Dublin Core and Records in Contexts[^28]. Crucially, these alignments do not imply that all participating actors must adopt the same vocabulary or level of granularity. Instead, they allow specific equivalences to be asserted, qualified, and traced with provenance, enabling downstream computation without forcing upstream conformity. The way we implemented ontological patterns of these music industry, library and archival standards is explained in the technical documentation of the Open Music Observatory[^29].
+At the technical level, interoperability is implemented through identifier reconciliation, controlled mappings between existing standards, and lightweight ontological patterns rather than comprehensive ontologies. The system is designed to interoperate selectively with DDEX-aligned industry metadata, ISRC-based recording identification, ISWC-based work identification used by CMOs[^27], and library- and archive-oriented standards such as *Dublin Core* and *Records in Contexts*[^28]. Crucially, these alignments do not imply that all participating actors must adopt the same vocabulary or level of granularity. Instead, they allow specific equivalences to be asserted, qualified, and traced with provenance, enabling downstream computation without forcing upstream conformity. The way we implemented ontological patterns of these music industry, library and archival standards is explained in the technical documentation of the Open Music Observatory[^29].
 
 [^27]: *International Standard Musical Work Code* (ISWC). ISO 15707:2022 [@iso_iswc_2022], *International Standard Recording Code* (ISRC). {ISO} 3901:2019 [@iso_isrc_2019].
 
@@ -454,11 +463,7 @@ This separation is central to the viability of diversity-aware cultural policy u
 
 Implementing this distinction requires more than a technical design choice. It is precisely the challenge addressed by **legal, organisational, and semantic alignment** under the European Interoperability Framework. The system must be able to lawfully access authoritative data sources, design an organisational workflow that produces a determinate evaluative outcome, and communicate that outcome back into a shared data space using semantics that can be consistently interpreted by diverse actors, including broadcasters, curators, researchers, and media authorities.
 
-In the Slovak context, this workflow is deeply intertwined with rights management. The national data sharing space is organised around SOZA, the collective management organisation with legal competence to identify musical works and connect them to living rightsholders and their heirs. Personal characteristics of composers—such as place of birth, nationality, residence, or ethnicity—are strictly protected under the General Data Protection Regulation and are not accessible for disclosure. As a result, while the evaluative logic is conceptually straightforward, its practical implementation is necessarily mediated by institutional trust and competence.
-
-> 8\. The use, development and governance of artificial intelligence (AI) systems should foster human creativity through a fair human-centric and rights-based approach. It should: respect cultural rights, accessibility, inclusivity and cultural diversity; develop and promote discoverability of European, national and local content; foster competitiveness; counter digital divides; and foster digital inclusion. We commit to:\
-> • Promoting human creation and European cultural and linguistic ligital sovereignty, and addressing ethical risks of biases and cultural homogenisation.\
-> • Protecting intellectual property rights, by addressing the impacts of AI on creators’ remuneration, while embracing innovation. *Draft Joint Declaration "Europe for Culture — Culture for Europe"* [@eu_culture_compass_joint_declaration_draft_2025]
+In the Slovak context, this workflow is deeply intertwined with rights management. The national data sharing space is organised around SOZA, the collective management organisation with legal competence to identify musical works and connect them to living rightsholders and their heirs. Personal characteristics of composers—such as place of birth, nationality, residence, or ethnicity—are strictly protected under the *General Data Protection Regulation* and are not accessible for disclosure. As a result, while the evaluative logic is conceptually straightforward, its practical implementation is necessarily mediated by institutional trust and competence.
 
 At a high level, the internal evaluation proceeds through a sequence of controlled matches. A sound recording is identified and linked to the musical work it embodies; the work is associated with its composer or composers; and the system evaluates whether any of the relevant personal or work-level characteristics satisfy the applicable quota definition. If at least one criterion is met, the recording is marked as eligible for the purposes of the local content quota. Crucially, the reason for eligibility is never exposed. A composition may qualify because the composer was born in Slovakia, because the composer resides there, or because the lyrics are written in the Slovak language. If any of these conditions are satisfied, all recordings of works by that composer—including co-authored works—are treated as eligible, without disclosing which condition applied.
 
@@ -496,11 +501,71 @@ The layered system architecture of SKCMDb is a direct consequence of the federat
 
 At the foundation of the architecture is a **private or trusted layer**, operated by institutions with formal legal competence over authoritative data. In the Slovak case, this layer is anchored in the systems of the collective management organisation SOZA and, where relevant, other trusted institutional partners. This layer contains detailed information on musical works, rightsholders, and personal attributes that may be necessary for internal evaluation, rights clearance, or metadata repair, but which are protected under data protection law. Access to this layer is governed by contractual, legal, and organisational safeguards, reflecting the governance arrangements established through the national Memorandum of Understanding described in @sec-policy. Its contents are never exposed directly to external users or applications.
 
+The layered system architecture of SKCMDb is a direct consequence of the federated governance model described in the preceding sections. The separation between data stewardship, interoperability, public access, and analysis is not merely a technical design choice, but an operationalisation of institutional competence, legal responsibility, and subsidiarity. In particular, it reflects the need to support policy-relevant evaluation and analytical reuse while ensuring that sensitive data remains under the control of the institutions legally entitled to process it.
+
+At the foundation of the architecture is a **private or trusted layer**, operated by institutions with formal legal competence over authoritative data. In the Slovak case, this layer is anchored in the systems of the collective management organisation SOZA and, where relevant, other trusted institutional partners. This layer contains detailed information on musical works, rightsholders, and personal attributes that may be necessary for internal evaluation, rights clearance, or metadata repair, but which are protected under data protection law. Access to this layer is governed by contractual, legal, and organisational safeguards, reflecting the governance arrangements established through the national Memorandum of Understanding described in @sec-policy. Its contents are never exposed directly to external users or applications.
+
+Behind the scenes, the trusted private layer performs metadata reconciliation, linking, and repair tasks using AI-assisted workflows within a data sharing space built on a knowledge graph. This model was chosen because it preserves full human control over both data sharing and inference: institutions retain authority over what data is processed and disclosed, while any inferred relationships—such as links between a musical work and its recorded fixations for royalty allocation—remain transparent, traceable, and auditable. By embedding AI within a governed knowledge graph rather than opaque pipelines, the architecture ensures that automation supports, rather than replaces, institutional responsibility, legal accountability, and human oversight[^35].
+
+[^35]: See more policy context in our *Green paper*, and more technical details in the Open Music Observatory technical documentation [@omo_2024; @open_music_greenpaper].
+
+> 8\. The use, development and governance of artificial intelligence (AI) systems should foster human creativity through a fair human-centric and rights-based approach. It should: respect cultural rights, accessibility, inclusivity and cultural diversity; develop and promote discoverability of European, national and local content; foster competitiveness; counter digital divides; and foster digital inclusion. We commit to:\
+> • Promoting human creation and European cultural and linguistic ligital sovereignty, and addressing ethical risks of biases and cultural homogenisation.\
+> • Protecting intellectual property rights, by addressing the impacts of AI on creators’ remuneration, while embracing innovation. *Draft Joint Declaration "Europe for Culture — Culture for Europe"* [@eu_culture_compass_joint_declaration_draft_2025]
+
+The following subsection documents how the private or trusted layer of the observatory was implemented in practice in the Slovak pilot. Rather than proposing a general legal model, it describes the concrete data protection reasoning, lawful bases, safeguards, and governance mechanisms adopted by SOZA and its partners to enable authority control and controlled data sharing in compliance with EU data protection law. It is relatively straightforward to replicate in another EU country, because GDPR applies directly in the entire European Union. Outside of the European Union, significant changes may be necessary.
+
+### Public-private governance and data protection
+
+Prior to the actual establishment of the private or trusted layer as the first layer, data protection challenges needed to be addressed. SOZA collects and processes the personal data of its members for the purposes of collective management. Such collection and processing are based on consent. Although the concept of “collective management” as a lawful basis is sufficiently broad, for reasons of transparency and legal certainty SOZA considered it necessary to identify a new lawful basis for the further processing of personal data within the context of the SKCMDb.
+
+Initially, SOZA prepared a consent-based participation scheme. However, due to the large number of members and the low response rate to participation requests, it became necessary to identify an alternative lawful basis for the intended processing. Consequently, a legitimate interest was selected as the lawful basis for further processing. In this context, a legitimate interest assessment, in the form of **a balancing test**, was required and prepared.
+
+The core of this balancing test[^36] consisted of assessing the potential impact of further processing of personal data on the rights and freedoms of the data subjects, namely SOZA’s members. If the potential impact on these rights and freedoms were to override SOZA’s legitimate interest, legitimate interest could not serve as a lawful basis for the intended further processing.
+
+[^36]: The balancing test was conducted in accordance with Article 6(1)(f) of Regulation (EU) 2016/679 (General Data Protection Regulation, short: GDPR), which permits the processing of personal data where it is necessary for the purposes of the legitimate interests pursued by the controller, provided that such interests are not overridden by the interests or fundamental rights and freedoms of the data subject. [@gdpr_2016_679]
+
+The personal data held by SOZA that is crucial for the proper functioning and establishment of the SKCMDb was divided into two groups, depending on whether the data would be made publicly accessible or accessible upon request to selected subjects. The categories of personal data concerned include name, surname, pseudonym, date of birth, place of permanent residence, and sex. Name, surname, and pseudonym are made publicly accessible, while date of birth, place of permanent residence, and sex are accessible upon request to selected subjects. This division of personal data into two tiers of access—public and upon request—plays a significant role in the management and protection of personal data. In this context, maintaining control over the data and its extraction is crucial for SOZA.
+
+Based on these tiers of access, users of the SKCMDb can also be divided into two groups: data contributors and data extractors. Data contributors provide personal data, thereby contributing to the content of the SKCMDb and improving its quality. Data extractors exclusively extract data from the SKCMDb, either from the publicly available layer or from the upon-request layer. It should be noted, however, that data contributors also act as data extractors with respect to each other’s data.
+
+Data contributors include SOZA, HC, HF, and SNK, all of which are signatories to the *second* *Memorandum of Understanding* with Reprex, the technical data and knowledge processor is concluded, among other purposes, to enable controlled and legally sound data sharing[^37]. This structure is very similar to the first project of the Copyright Infrastructure Task Force introduced in @sec-citf-first-project.
+
+[^37]: *Memorandum o porozumení vo vzťahu k Slovenskej súhrnnej hudobnej database -* \[Memorandum of Understanding in relation to the Slovak Comprehensive Music Database\] (SOZA, Hudobné centrum, Slovenská národný knižnica, Hudobný fond and Reprex)
+
+Data extractors include all data contributors, as well as various music streaming platforms, online knowledge databases, encyclopaedias, and similar services.
+
+SOZA’s legitimate interest was identified as including the following objectives:
+
+-    improving and streamlining the performance of collective rights management carried out by SOZA for its members;
+
+-    increasing the accuracy and availability of information about the musical works of SOZA’s members;
+
+-    promoting Slovak music, musical works, musical recordings, and knowledge about Slovak music by making them more easily accessible and searchable; and
+
+-    promoting authors of musical works and music publishers represented by SOZA.
+
+In light of the above, and in the context of the establishment of the SKCMDb, the potential benefits of further processing of personal data were assessed as not overriding SOZA’s legitimate interest. Accordingly, legitimate interest could be employed as a lawful basis for the intended further processing of personal data.
+
+As the lawful basis for further processing is legitimate interest rather than consent, an opt-out option must be provided to data subjects, namely SOZA’s members. Notifications of the planned further processing of personal data, including information about the opt-out option, were distributed to data subjects via SOZA’s internal user interface, an email newsletter, and a permanent notification on SOZA’s website. The opt-out can be exercised by sending an email to SOZA’s Data Protection Officer. In this context, the opt-out option serves as an important mechanism for protecting the rights and freedoms of data subjects.
+
+In connection with the processing of personal data, cooperation with an external data processor was established. The external data processor was selected based on its technical expertise, trustworthiness, and implementation of appropriate data protection and security measures. The cooperation is governed by an agreement on the processing of personal data, which serves as the legal basis for the relationship and defines the mutual rights and obligations of the parties. The agreement also imposes obligations relating to confidentiality, security, and data protection. The SKCMDb is continuously updated and subject to ongoing technical and security supervision, ensuring compliance with EU data protection regulations and resulting in a fully functional private or trusted layer.
+
 Above this sits an **intermediate interoperability layer**, which functions as a controlled interface between trusted data holders and the wider data sharing space. In the SKCMDb implementation, this role is fulfilled by a SPARQL endpoint implemented using Apache Jena Fuseki. This layer hosts derived RDF graphs generated from authoritative sources and refreshed on a regular basis. Crucially, these graphs are treated as reproducible publication artefacts rather than systems of record. They contain only non-personal data and outcome-level properties resulting from internal evaluation, such as eligibility flags or heritage associations. In this way, the interoperability layer translates institutionally governed microdata into a form that can circulate safely across organisational and national boundaries without exposing sensitive underlying information.
 
-The **public access layer** builds on this interoperability interface to support exploration, navigation, and reuse by a broader audience. In several modules of the Open Music Observatory ecosystem, including the Slovak implementation, this layer is realised through Sampo-style user interfaces. These interfaces are designed primarily for cultural heritage, research, and policy contexts. They allow users to browse repertoires, explore relationships between works and recordings, and apply faceted filters based on non-sensitive attributes. From a governance perspective, this layer embodies the commitment to transparency and public value articulated in the Slovak MoU, while remaining firmly decoupled from any processing of personal data.
+### Public Access Layer
 
-The **analytical layer** provides tools for computation, aggregation, and visualisation, and is explicitly constrained to operate on the same outcome-level data exposed through the interoperability layer. In the Slovak case, this includes applications built with Shiny, which enable editors, analysts, or researchers to upload playlists or chart data and compute diversity or local-content indicators based on matches against the SKCMDb graph. These analytical tools do not require, and do not permit, direct access to trusted institutional data. Their design reflects the separation between internal evaluation and external use described in @sec-sensitive-data ensuring that policy-relevant analysis can be performed without expanding the circle of access to protected data.
+The **public access layer** builds on this interoperability interface to support exploration, navigation, and reuse by a broader audience. In several modules of the Open Music Observatory ecosystem, including the Slovak implementation, this layer is realised through a Sampo semantic browser.
+
+The Sampo Semantic Browser is implemented using the Sampo-UI framework, a full-stack JavaScript framework for developing semantic portal user interfaces. These interfaces are designed primarily for cultural heritage, research, and policy contexts[^38], and support exploratory access to graph-based data through faceted search and multiple analytical perspectives. In the observatory, this layer allows users to browse repertoires, explore relationships between works, recordings, agents, and institutions, and apply faceted filters based exclusively on non-sensitive attributes.
+
+[^38]: Sampo-UI was developed by the Semantic Computing Research Group (SeCo) at Aalto University in collaboration with the Helsinki Centre for Digital Humanities (HELDIG). The framework has been applied in numerous national and international semantic portals in the cultural heritage and digital humanities domains. We are grateful to the Sampo team for their openness, documentation, and constructive feedback during the design of the observatory’s semantic browsing layer. More information: *Sampo-UI: A Full Stack JavaScript Framework for Developing Semantic Portal User Interfaces* [@ikkala_sampo_ui]
+
+Our use of Sampo-UI benefited substantially from guidance and feedback provided by the Sampo development team. In particular, discussions during a workshop on presenting Finno-Ugric cultural data at the *Digital Humanities in the Nordic and Baltic Countries* (DHNB) 2025 conference in Tartu helped clarify design choices and interaction patterns for semantic browsing in a multilingual and cross-institutional context. From a governance perspective, the semantic browser layer supports transparency and public value, as articulated in the Slovak Memorandum of Understanding, while remaining clearly separated from any processing of personal data and from the private or trusted layers of the observatory architecture.
+
+These interfaces are designed primarily for cultural heritage, research, and policy conte. They allow users to browse repertoires, explore relationships between works and recordings, and apply faceted filters based on non-sensitive attributes. From a governance perspective, this layer embodies the commitment to transparency and public value articulated in the Slovak MoU, while remaining firmly decoupled from any processing of personal data.
+
+The **analytical layer** provides tools for computation, aggregation, and visualisation, and is explicitly constrained to operate on the same outcome-level data exposed through the interoperability layer. In the Slovak case, this includes computational notebooks built in R and applications built with Shiny, which enable editors, analysts, or researchers to upload playlists or chart data and compute diversity or local-content indicators based on matches against the SKCMDb graph. These analytical tools do not require, and do not permit, direct access to trusted institutional data. Their design reflects the separation between internal evaluation and external use described in @sec-sensitive-data ensuring that policy-relevant analysis can be performed without expanding the circle of access to protected data.
 
 This layered architecture also enables replication across jurisdictions and institutional contexts. A similar configuration can be deployed elsewhere by identifying appropriate data stewards for the trusted layer, exposing derived graphs through a standardised interoperability interface, and reusing or adapting existing public and analytical applications. Because the analytical logic operates on outcome-level properties rather than raw personal data, the same tools can be reused across national implementations even where underlying legal regimes, institutional arrangements, or data sources differ. This was precisely the case in the Hungarian implementation, where a bottom-up governance model required tighter institutional boundaries, and in the Finno-Ugric data spaces, where trusted layers are distributed across NGOs and regional GLAM institutions rather than central authorities.
 
@@ -621,7 +686,7 @@ Last but not least, artists may chose to detach their private and public persona
 | note                  |                                                                                |
 +-----------------------+--------------------------------------------------------------------------------+
 
-: Given name {tbl-colwidths="\[30,70\]\]"}
+: Given name {tbl-colwidths="\[30,70\]"}
 
 +-----------------------+--------------------------------------------------------------------------------+
 | variable name         | `surname`                                                                      |
@@ -633,7 +698,7 @@ Last but not least, artists may chose to detach their private and public persona
 | note                  |                                                                                |
 +-----------------------+--------------------------------------------------------------------------------+
 
-: Surname {tbl-colwidths="\[30,70\]\]"}
+: Surname {tbl-colwidths="\[30,70\]"}
 
 ### Location and nationality {.unnumbered}
 
@@ -661,7 +726,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note                  |                                                                                                          |
 +-----------------------+----------------------------------------------------------------------------------------------------------+
 
-: City {tbl-colwidths="\[30,70\]\]"}
+: City {tbl-colwidths="\[30,70\]"}
 
 +-----------------------+---------------------------------------------------------------------------------------------------------------+
 | variable name         | `date_of_birth`                                                                                               |
@@ -673,7 +738,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note                  |                                                                                                               |
 +-----------------------+---------------------------------------------------------------------------------------------------------------+
 
-: Date of birth {tbl-colwidths="\[30,70\]\]"}
+: Date of birth {tbl-colwidths="\[30,70\]"}
 
 +-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name         | `country of birth`                                                                                                                           |
@@ -685,7 +750,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note                  | An auxilliary variable to establish `is heritage of/local to` Slovakia, i.e., if the person's compositions belong to the Slovak local quota. |
 +-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
-: Country of birth {tbl-colwidths="\[30,70\]\]"}
+: Country of birth {tbl-colwidths="\[30,70\]"}
 
 +---------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name | `has_lived_in_Slovakia`                                                                                                                      |
@@ -695,7 +760,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note          | An auxilliary variable to establish `is heritage of/local to` Slovakia, i.e., if the person's compositions belong to the Slovak local quota. |
 +---------------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
-: Lived in Slovakia {tbl-colwidths="\[30,70\]\]"}
+: Lived in Slovakia {tbl-colwidths="\[30,70\]"}
 
 +-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name         | `nationality`                                                                                                                                                                                                                                                                                                                                                 |
@@ -707,7 +772,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note                  | An auxilliary variable to establish `is heritage of/local to` Slovakia or one of its regions, i.e., if the person's compositions belong to the Slovak local quota. Because the nationality connects the artist with a geopolitical entity, we use a special form of location; the ethnonym of "Slovaks" is reserved for the Slovak ethnolinguistic community. |
 +-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-: nationality {tbl-colwidths="\[30,70\]\]"}
+: nationality {tbl-colwidths="\[30,70\]"}
 
 +---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name | `place_of_birth`                                                                                                                                                                                            |
@@ -717,7 +782,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note          | An auxilliary variable to establish `is heritage of/local to` Slovakia or one of its regions, i.e., if the person's compositions belong to the Slovak local quota or to a locally curated music collection. |
 +---------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-: Place of birth {tbl-colwidths="\[30,70\]\]"}
+: Place of birth {tbl-colwidths="\[30,70\]"}
 
 +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name         | `sex_at_birth`                                                                                                                                                                                       |
@@ -729,7 +794,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note                  | SKCMDb can handle non-binary gender identities, but SOZA, following Slovak administrative practice, only has the judicially recognised sex availalbe; the artist can ask the variable to be changed. |
 +-----------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-: Sex assigned at birth {tbl-colwidths="\[30,70\]\]"}
+: Sex assigned at birth {tbl-colwidths="\[30,70\]"}
 
 +-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name         | `IPI_name_number`                                                                                                                                                                                        |
@@ -741,7 +806,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note                  | A unique identifying number assigned by the CISAC database to each Interested Party in collective rights management. An artist may have multiple IPI numbers for multiple pseudonyms or name variations. |
 +-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-: IPI_name_number {tbl-colwidths="\[30,70\]\]"}
+: IPI_name_number {tbl-colwidths="\[30,70\]"}
 
 +-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name         | `IPI_name_number`                                                                                                                                                                                        |
@@ -753,7 +818,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note                  | A unique identifying number assigned by the CISAC database to each Interested Party in collective rights management. An artist may have multiple IPI numbers for multiple pseudonyms or name variations. |
 +-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-: IPI name number {tbl-colwidths="\[30,70\]\]"}
+: IPI name number {tbl-colwidths="\[30,70\]"}
 
 +-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name         | `IPI_name_for`                                                                                                                                                                                           |
@@ -765,7 +830,7 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note                  | A unique identifying number assigned by the CISAC database to each Interested Party in collective rights management. An artist may have multiple IPI numbers for multiple pseudonyms or name variations. |
 +-----------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-: IPI name for {tbl-colwidths="\[30,70\]\]"}
+: IPI name for {tbl-colwidths="\[30,70\]"}
 
 +-----------------------+-----------------------------------------------------------------------------------------------+
 | variable name         | `pseudonym`                                                                                   |
@@ -777,20 +842,11 @@ Last, but not least, non-vocal authentic folk music of Slovaks is also a heritag
 | note                  | If the person wishes to use a pseudonym, the person's record will be labelled with this name. |
 +-----------------------+-----------------------------------------------------------------------------------------------+
 
-: Pseudonym {tbl-colwidths="\[30,70\]\]"}
+: Pseudonym {tbl-colwidths="\[30,70\]"}
 
-<<<<<<< HEAD
 ### Repertoire Data {.unnumbered}
 
-#### Sound recordings {.unnumbered}
-
-A **sound recording** is the actual captured sound: a specific audio performance fixed in a sound file or master. Under the ISRC (International Standard Recording Code) standard, each distinct sound recording is identified by a unique ISRC. Different edits, remasters, or versions of the same performance typically receive different ISRCs, because they represent different sound recordings [@iso_isrc_2019].
-
-#### Recording Title {.unnumbered}
-=======
-## Repertoire Data  {.unnumbered}
-
-### Sound recordings  {.unnumbered}
+### Sound recordings {.unnumbered}
 
 A **sound recording** is the actual captured sound: a specific audio performance fixed in a sound file or master. Under the ISRC (International Standard Recording Code) standard, each distinct sound recording is identified by a unique ISRC. Different edits, remasters, or versions of the same performance typically receive different ISRCs, because they represent different sound recordings [@iso_isrc_2019].
 
@@ -806,7 +862,6 @@ A **sound recording** is the actual captured sound: a specific audio performance
 | notes              | May be multilingual; language tags are applied when known |
 +--------------------+-----------------------------------------------------------+
 
-
 #### Normalised Recording Title (Identifier-style Alias)
 
 +--------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -818,7 +873,6 @@ A **sound recording** is the actual captured sound: a specific audio performance
 +--------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | notes              | Derived from `recording_title` by applying ASCII-only, uppercase normalization for identifier-style matching and reconciliation. This variable is an alias of the recording title, not a distinct work or title statement, and carries no ontological role. It is intended solely for technical matching, joining, and comparison, not for presentation or authoritative naming. |
 +--------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
 
 #### Artist Name (Display Artist) {.unnumbered}
 
@@ -834,7 +888,6 @@ A **sound recording** is the actual captured sound: a specific audio performance
 
 #### Normalised Artist Name (Identifier-style Alias)
 
-
 +--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | normalised_artist_name                                                                                                                                                                                                                                                                                                                        |
 +--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -846,7 +899,6 @@ A **sound recording** is the actual captured sound: a specific audio performance
 +--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #### Recording Lyrics Language {.unnumbered}
-
 
 The recording lyrics language is only added to the Slovak, Livonian, and Karelian datasets.
 
@@ -861,7 +913,6 @@ The recording lyrics language is only added to the Slovak, Livonian, and Karelia
 +--------------------+--------------------------------------------------------------------------+
 
 #### Duration {.unnumbered}
-
 
 +--------------------+------------------------------------------------------------------------------+
 | variable name      | duration                                                                     |
@@ -891,8 +942,6 @@ The recording lyrics language is only added to the Slovak, Livonian, and Karelia
 
 #### Country of ISRC Registration {.unnumbered}
 
-
-
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | isrc_country_code                                                                                                                                                                  |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -905,7 +954,6 @@ The recording lyrics language is only added to the Slovak, Livonian, and Karelia
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 #### ISRC Registrant Code {.unnumbered}
-
 
 For details on ISRC registration please see *International Standard Recording Code (ISRC} Handbook. 4th Edition.* [@isrc_handbook_2021]
 
@@ -921,7 +969,6 @@ For details on ISRC registration please see *International Standard Recording Co
 
 #### Year of ISRC Registration {.unnumbered}
 
-
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | isrc_reference_year                                                                                                                                                                |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -932,9 +979,7 @@ For details on ISRC registration please see *International Standard Recording Co
 | notes              | This is the ISRC assignment year, not the recording year or release year                                                                                                           |
 +--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-
 #### ISRC Country Code {.unnumbered}
-
 
 The ISRC country code does not refer to a country as a geopolitical entity, but to an organisation that registers sound recordings with a territorial jurisdiction. For example, *Association of Hungarian Record Companies* (Mahasz, [omo:Q2035](https://reprexbase.eu/openmusic/Item:Q2035) ), the Hungarian national IPI Group member, handles the ISRC codes starting with `HU`. In this respect, the `HU` part of the ISRC code does not refer to Hungary but to Mahasz.
 
@@ -952,7 +997,6 @@ In most cases, `HU` and other ISRC country codes coincide with the country code 
 
 #### ISRC Registration Country {.unnumbered}
 
-
 For example, *Association of Hungarian Record Companies* (Mahasz, [omo:Q2035](https://reprexbase.eu/openmusic/Item:Q2035) ), handles the registrations on the territory of Hungary. Whenever the top-level registrar corresponds with a geopolitical entity, we placed the entity's name in this variable, including non-sovereign entities like Hong Kong or French Southern Territories. The non-territorial codes are marked with *No agency \[exception\]*.
 
 Our aim was the study of Slovak and Hungarian registrations in and outside of their registrars, and the algorithms we used collected a lot of identifiers that fell out of the scope of these countries.
@@ -969,7 +1013,6 @@ Our aim was the study of Slovak and Hungarian registrations in and outside of th
 
 #### ISRC Designation Code {.unnumbered}
 
-
 This range usually identifies a label or a rights management company that handles recording-side royalties. The reason why they cannot be directly mapped to labels is that certain designation codes were allocated to labels that were dissolved, or merged into newer entities, or have other successors. They can be seen as a provenance variable for the particular registration. Unfortunately, we know that often the same recording receives new ISRC codes when the previous registering body or its administration recards are no longer available.
 
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -984,7 +1027,6 @@ This range usually identifies a label or a rights management company that handle
 
 #### Spotify Track ID {.unnumbered}
 
-
 +--------------------+----------------------------------------------------------------------------------------------------+
 | variable name      | spotify_track_id                                                                                   |
 +--------------------+----------------------------------------------------------------------------------------------------+
@@ -997,13 +1039,11 @@ This range usually identifies a label or a rights management company that handle
 
 ### Release {.unnumbered}
 
-
 A **release** is a packaged publication of one or more recordings made available to the public. In DDEX terminology, a release groups recordings together in a specific commercial or distribution context, such as an album, single, EP, or digital compilation. The same recording can appear on multiple releases (for example, an album release, a single release, and a compilation), while retaining the same ISRC.
 
 Unfortunately, as our research shows, new releases often receive a new ISRC code.
 
 #### Release Year {.unnumbered}
-
 
 +--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | release_year                                                                                                                                                             |
@@ -1017,7 +1057,6 @@ Unfortunately, as our research shows, new releases often receive a new ISRC code
 
 #### Release Name {.unnumbered}
 
-
 +--------------------+-----------------------------------------------------------------------------+
 | variable name      | release_title                                                               |
 +--------------------+-----------------------------------------------------------------------------+
@@ -1029,7 +1068,6 @@ Unfortunately, as our research shows, new releases often receive a new ISRC code
 +--------------------+-----------------------------------------------------------------------------+
 
 #### Normalised Release Name (Identifier-style Alias) {.unnumbered}
-
 
 +--------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | variable name      | normalised_release_title                                                                                                                                                                                                                                                                                                                                                                    |
@@ -1043,7 +1081,6 @@ Unfortunately, as our research shows, new releases often receive a new ISRC code
 
 #### Release Type {.unnumbered}
 
-
 +--------------------+-------------------------------------------------------------------------------+
 | variable name      | release_type                                                                  |
 +--------------------+-------------------------------------------------------------------------------+
@@ -1055,7 +1092,6 @@ Unfortunately, as our research shows, new releases often receive a new ISRC code
 +--------------------+-------------------------------------------------------------------------------+
 
 #### UPC or EAN {.unnumbered}
-
 
 The *Open Music Europe – ISRC-Sampled Sound Recording Metadata* does not contain release identifiers, and not in all cases in the smaller datasets.
 
@@ -1084,6 +1120,5 @@ We provide this information when it is given. It is not provided in the Open Mus
 +--------------------+------------------------------------------------------------------------------------------------+
 
 #### Label Identifier (Curated) {.unnumbered}
-
 
 This information is not given in the case of the *Open Music Europe – ISRC-Sampled Sound Recording Metadata*, and not in all cases in the smaller datasets.

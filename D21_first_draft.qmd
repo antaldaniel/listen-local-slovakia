@@ -5,6 +5,7 @@ project:
   type: website
   output-dir: docs
 editor: source
+version: "0.2.0"
 format: 
    html: 
      toc: true
@@ -13,13 +14,17 @@ format:
    epub: 
      toc: true
      toc-depth: 3
+     output-file: music-heritage-policy-ai_v0_3.epub
      citation-style: chicago-author-date.csl
    docx: 
+     toc-depth: 2 
      citation-style: chicago-author-date.csl
+     output-file: music-heritage-policy-ai_v0_3.docs
    pdf:
     colorlinks: true
     toc: true
     toc-depth: 3
+    output-file: music-heritage-policy-ai_v0_3.pdf
     latex: 
        - lof: true
 
@@ -134,7 +139,7 @@ The implementation of the **Slovak Comprehensive Music Database** (available at 
 
 In the cultural and creative sectors, this transformation has been driven in part by the rapid platformisation of music distribution and discovery. Recommendation systems, analytics pipelines, and increasingly generative AI models now mediate access to cultural content at a global scale. These systems rely on metadata that is often incomplete, inconsistent, or governed by commercial incentives that do not align with public-interest objectives. As a result, cultural policy goals—such as diversity, linguistic plurality, gender balance, or local content promotion—are difficult to articulate, let alone enforce, within algorithmic environments dominated by non-European actors.
 
-[!["Recognising the EU’s supporting role in the field of culture, this declaration affirms shared political commitments and responsibilities of the European Parliament, the Council of the European Union and the European Commission - within their respective competencies and in full compliance with EU law - based on the key directions set out in the Commission’s 2025 Culture Compass for Europe."](png/eupolicies/Draft_Joint_Declaration_Europe_for_Culture_6x4.png){fig-align="center"}](https://culture.ec.europa.eu/sites/default/files/2025-11/Draft%20Joint%20Declaration%20-%20Europe%20for%20Culture%20with%20cover_0.pdf)
+[!["Recognising the EU’s supporting role in the field of culture, this declaration affirms shared political commitments and responsibilities of the European Parliament, the Council of the European Union and the European Commission - within their respective competencies and in full compliance with EU law - based on the key directions set out in the Commission’s 2025 Culture Compass for Europe."](png/eupolicies/Draft_Joint_Declaration_Europe_for_Culture_6x4.png){width="100%" fig-align="center"}](https://culture.ec.europa.eu/sites/default/files/2025-11/Draft%20Joint%20Declaration%20-%20Europe%20for%20Culture%20with%20cover_0.pdf)
 
 > 2\. Cultural and linguistic diversity are fundamental values on which the EU is founded. We commit to:\
 > • Supporting, celebrating and preserving the rich cultural and linguistic diversity of the European Union and its cultural sovereignty.\
@@ -183,9 +188,11 @@ Our approach presented here was co-presented jointly with the Slovak Music Centr
 
 We presented and discussed these ideas jointly with the Slovak Music Centre at the *International Association of Music Libraries, Archives and Documentation Centers* (IAML) General Assembly and Annual Conference (Salzburg, 7–9 July 2025), within the “Future Libraries” session and the poster session. See the presentation and poster format [@skcmdb_iaml_presentation_2025; @skcmdb_iaml_poster_2025]. The discussion focused on the role of national music libraries and documentation centres as data stewards within federated cultural data spaces. Feedback from IAML participants contributed to clarifying the library-oriented replication pathway and helped accelerate the otherwise slow Hungarian replication process, supported by the positive reception of IAMIC Hungary. The exchange also identified potential future replication interest in Portugal, Finland, and Denmark, although these initiatives are likely to materialise beyond the timeline of the Open Music Europe project.
 
-![CISAC European Committee Meeting as *OpenMusE: Towards a Sustainable Licensing Market for AI Use of Protected Works* in Vilnius, on 29 April 2025. ](png/cisac/20250427_CISAC_EC_2025_OpenMusE_2x1.png){fig-align="center"}
+![CISAC European Committee Meeting as *OpenMusE: Towards a Sustainable Licensing Market for AI Use of Protected Works* in Vilnius, on 29 April 2025.](png/cisac/20250427_CISAC_EC_2025_OpenMusE_2x1.png){fig-align="center"}
 
 Our work was also presented at the CISAC European Committee Meeting as *OpenMusE: Towards a Sustainable Licensing Market for AI Use of Protected Works* in Vilnius, on 29 April 2025 [@openmuse_cisac_ec_2025] in comparison with similar metadata governance and repair initiatives from several countries.
+
+Recent discussions within the European cultural heritage sector further underline the importance of provenance-aware data governance in the age of AI. A joint *Impulse Paper* by the Open Future Foundation and the Europeana Foundation examines how cultural heritage institutions can navigate large-scale data publishing and AI reuse while preserving public accountability, authority, and trust. It highlights that, once cultural data enters automated and AI-driven environments, incomplete or degraded provenance is no longer a marginal archival issue but a structural risk that shapes downstream use at scale. While the focus of that work is cross-domain, its conclusions closely resonate with the challenges observed in music, reinforcing the need to treat authority control, attribution, and lifecycle-aware governance as core infrastructural concerns rather than sector-specific exceptions. [@publishing_CHD_AI_2025]
 
 Building directly on the practical experience gained through the Slovak, Hungarian, and Finno-Ugric implementations, within the Open Music Europe consortium we subsequently developed a **Green Paper** addressing data gaps, governance challenges, and interoperability needs in the European music sector[^11]. The Green Paper should be understood as a reflective synthesis of implementation experience rather than a source of technical or policy requirements. The preparation and release of the *Green Paper* followed the principles of Open Policy Analysis, with early publication, open consultation, and full traceability of data, methods, and supporting documentation.
 
