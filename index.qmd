@@ -65,6 +65,7 @@ bibliography:
   - bib/dataspace.bib
   - bib/ontologies.bib
   - bib/OpenMuse.bib
+  - bib/openmusicobservatory.bib
   - bib/privatelyhelddata.bib
   - bib/textilebase.bib
   - bib/wikidata.bib
@@ -72,6 +73,9 @@ bibliography:
   - bib/opa.bib
   - bib/OpenMusE.bib
   - bib/sampo.bib
+  
+nocite: |
+  @antal_graph_based_reconciliation_2025
 ---
 
 {{< pagebreak >}}
@@ -276,9 +280,11 @@ At national level, this logic was formalised in Slovakia through a *Memorandum o
 
 -   The **Slovak Comprehensive Music Database** is available at [https://hudobnadatabaza.sk/](https://hudobnadatabaza.sk/en/).
 
-In Hungary, a comparable level of centralised coordination could not be achieved at the outset. As a result, the Hungarian implementation followed a deliberately bottom-up trajectory. Building on the Slovak template and its early public articulation in conference presentations, the Hungarian work progressed through a series of bilateral agreements, exploratory workshops, and open professional discussions with individual institutions. This process involved sustained dialogue with archival, heritage, and research actors, rather than a single coordinating authority. While slower and more fragmented, this bottom-up approach proved well suited to the Hungarian institutional landscape and ultimately produced a governance structure aligned with local capacities, traditions, and trust relationships. In this sense, the divergence between the Slovak and Hungarian governance paths is not a deviation from the shared architectural vision, but an expression of the subsidiarity principle in practice[^15].
+Originally, the Slovak use case was planned to be replicated in Bulgaria. After a change in the granted action, first a Hungarian, later a Polish replication was planned.
 
-[^15]: Presented at the annual conference of library and GLAM information management conference, the A szlovák adatkicserélési tér magyarországi föderációjának lehetőségei [@antal_hungarnet_2024] was followed by numerous bilateral and open professional forums.
+The Hungarian replication planning started in 2024, with a closely resembling plan to Slovakia. A comparable level of centralised coordination could not be achieved at the outset. As a result, the Hungarian implementation followed a deliberately bottom-up trajectory. Building on the Slovak template and its early public articulation in conference presentations, the Hungarian work progressed through a series of bilateral agreements, exploratory workshops, and open professional discussions with individual institutions. This process involved sustained dialogue with archival, heritage, and research actors, rather than a single coordinating authority. While slower and more fragmented, this bottom-up approach proved well suited to the Hungarian institutional landscape and ultimately produced a governance structure aligned with local capacities, traditions, and trust relationships. In this sense, the divergence between the Slovak and Hungarian governance paths is not a deviation from the shared architectural vision, but an expression of the subsidiarity principle in practice[^15].
+
+[^15]:  _A szlovák adatkicserélési tér magyarországi föderációjának lehetőségei_ [The Hungarian federation possibilities of the Slovak data sharing space], presented in 3-4 April, 2024 in Eger. [@antal_2024_networkshop] Subsequent presentations lead to a different, more archival oriented replication with the House of Hungarian Heritage and the House of Music with its library and archival collection.
 
 The Hungarian implementation follows the same architectural and governance principles but emerged through a more bottom-up trajectory, reflecting different institutional histories and capacities. Cooperation developed incrementally through professional dialogue among archival, heritage, and research institutions rather than through a single coordinating authority.[^16]
 
@@ -390,11 +396,15 @@ A foundational methodological decision is the explicit separation between differ
 
 The representation of agents—composers, performers, ensembles, producers, and institutions—is similarly constrained by policy and legal considerations. Personal attributes are not modelled for public exposure or direct analytical use. Instead, where policy criteria depend on characteristics of contributors, these are evaluated internally by competent institutions and expressed externally only through artefact-level outcomes (for example, whether a recording qualifies under a given policy rule). This modelling strategy supports lawful internal evaluation while avoiding the disclosure or stabilisation of sensitive personal data, aligning representation choices with governance and data protection requirements.
 
-![Graph databases allow to work with incomplete data, and they can connect into various person, work, or recording databases that follow a graph or relational structure. Their structure is optimised to increase knowledge, not to retrieve the same relations many times over, this is why they are usually used for knowledge bases.](png/graph/graph_with_music.png){fig-align="center"}
+![The example shows how a knowledge graph can represent incomplete and competing relationships between recordings, works, agents, and identifiers across federated databases without enforcing a single hierarchy. Uncertainty is kept explicit, enabling explainable, human-controlled reconciliation and policy-relevant analysis while avoiding the exposure of sensitive personal data. Reuse the visualisation: <https://doi.org/10.5281/zenodo.17897724>](png/graph/graph_with_music.png){fig-align="center"}
 
 To support interoperability across heterogeneous systems, the data model relies on graph-based representations rather than flat relational structures. Graphs provide the flexibility required to express multiple, overlapping relationships between works, recordings, agents, places, languages, and institutions without forcing a single hierarchy. At the same time, the model avoids ontological maximalism. Rather than adopting or extending a single comprehensive ontology, it uses modular patterns that can interoperate with existing standards where needed and remain silent where alignment would add complexity without policy value.
 
 Crucially, representation is designed to distinguish between authoritative assertions and derived analytical statements. Authoritative data—such as identifiers, catalogue records, or rights-related facts—remains anchored to its source institution and is referenced with explicit provenance. Analytical representations, including inferred relationships or eligibility outcomes, are treated as derived artefacts that can be regenerated, revised, or withdrawn as methods evolve. This distinction enables reproducibility, auditability, and institutional trust, while ensuring that the data model remains adaptable to new policy questions and implementation contexts.
+
+The precise data model is available in the data paper _Open Music Europe Recorded Music Datasets_  [^p1].
+
+[^p1]:_Open Music Europe Recorded Music Datasets_  [@openmuse_recorded_music_datasets].
 
 ### Interoperability Mechanics
 
@@ -557,13 +567,13 @@ Data extractors include all data contributors, as well as various music streamin
 
 SOZA’s legitimate interest was identified as including the following objectives:
 
--    improving and streamlining the performance of collective rights management carried out by SOZA for its members;
+-   improving and streamlining the performance of collective rights management carried out by SOZA for its members;
 
--    increasing the accuracy and availability of information about the musical works of SOZA’s members;
+-   increasing the accuracy and availability of information about the musical works of SOZA’s members;
 
--    promoting Slovak music, musical works, musical recordings, and knowledge about Slovak music by making them more easily accessible and searchable; and
+-   promoting Slovak music, musical works, musical recordings, and knowledge about Slovak music by making them more easily accessible and searchable; and
 
--    promoting authors of musical works and music publishers represented by SOZA.
+-   promoting authors of musical works and music publishers represented by SOZA.
 
 In light of the above, and in the context of the establishment of the SKCMDb, the potential benefits of further processing of personal data were assessed as not overriding SOZA’s legitimate interest. Accordingly, legitimate interest could be employed as a lawful basis for the intended further processing of personal data.
 

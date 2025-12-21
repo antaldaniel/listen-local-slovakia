@@ -117,6 +117,8 @@ The bibliographic references are organised by themese, and they are stored in th
 
 -   `bib/OpenMusE.bib`: bibliographic entries on the Open Music Europe project's documents.
 
+-   `bib/openmusicobservatory.bib`: bibliographic entries on the Open Music Observatory.
+
 -   `bib/ontologies.bib`: bibliographic entries for formal ontologies.
 
 -   `bib/ossh.bib`: open-source software and hardware bibliography.
