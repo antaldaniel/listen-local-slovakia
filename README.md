@@ -73,8 +73,6 @@ The bibliographic references are organised by themese, and they are stored in th
 
 -   `bib/collections.bib`: bibliographic entries for theories and conceptualisations of collections.
 
--   `bib/collections.bib`: bibliographic entries for theories and conceptualisations of collections.
-
 -   `bib/datagovernance.bib`: bibliographic entries for data governance.
 
 -   `bib/datamodels.bib`: bibliographic entries for data models.
@@ -111,7 +109,7 @@ The bibliographic references are organised by themese, and they are stored in th
 
 -   `bib/livonians.bib`: Bibliography connected to the Livonian Music Database.
 
--    `bib/opa.bib`: bibliography on the Open Policy Analysis Guidelines.
+-   `bib/opa.bib`: bibliography on the Open Policy Analysis Guidelines.
 
 -   `bib/opendata.bib`: bibliography on the EU open data policies and regulations.
 
