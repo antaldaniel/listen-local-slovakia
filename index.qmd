@@ -5,11 +5,14 @@ project:
   type: website
   output-dir: docs
 editor: source
-version: "0.4.2"
+version: "0.5.0"
 author:
   - name: "Antal, Dániel"
     orcid: 0000-0001-7513-6760
     role: author
+  - name: "Demčák, Richard"
+    orcid: 0009-0007-0687-1201
+    role: data manager
   - name: "Jankovič, Marián"
     orcid: 0009-0003-6326-226X
     role: author
@@ -19,6 +22,15 @@ author:
   - name: "Mikš, Tomaš"
     orcid: 0009-0004-7686-4611
     role: Task Leader
+  - name: "Mester, Anna Márta"
+    orcid: 0000-0003-1726-0928
+    role: data manager
+  - name: "Semaňáková, Dominika"
+    orcid: 0000-0002-1972-1428
+    role: data manager
+  - name: "Žilková, Anna"
+    orcid: 0009-0007-5261-6930
+    role: data manager
 format: 
    html: 
      toc: true
@@ -27,17 +39,17 @@ format:
    epub: 
      toc: true
      toc-depth: 3
-     output-file: music-heritage-policy-ai_v0_4.epub
+     output-file: music-heritage-policy-ai_v0_5.epub
      citation-style: chicago-author-date.csl
    docx: 
      toc-depth: 2 
      citation-style: chicago-author-date.csl
-     output-file: music-heritage-policy-ai_v0_4.docx
+     output-file: music-heritage-policy-ai_v0_5.docx
    pdf:
     colorlinks: true
     toc: true
     toc-depth: 3
-    output-file: music-heritage-policy-ai_v0_4.pdf
+    output-file: music-heritage-policy-ai_v0_5.pdf
     latex: 
        - lof: true
 
