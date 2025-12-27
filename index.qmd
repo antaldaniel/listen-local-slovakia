@@ -126,6 +126,14 @@ Please note that this document puts the Open Music Observatory, a prototype of a
 
 [^4]: Always use the latest versioned DOI when citing this document, available via Zenodo. If you rely on supporting material hosted in the GitHub repository, please add the date of access in your reference.
 
+This deliverable was prepared under a constrained and evolving project context, including changes in timelines, dependencies between work packages, and the availability and maturity of upstream inputs. As a result, certain planned validation, integration, or iterative refinement steps could not be carried out to the originally anticipated extent within the project timeframe.
+
+The work presented here therefore prioritises methodological transparency, reproducibility, and clear documentation of implemented components over completeness of cross-work-package integration. Where relevant, limitations are explicitly noted, and all materials are made available to support future extension or reuse beyond the project’s formal end date. Additional refinement and replication work was discussed by the partners involved but could not be accommodated within the approved project timeframe.
+
+The empirical work, implementation activities, and partner contributions documented in this deliverable were carried out in Slovakia and Hungary, where the innovation was developed and implemented. Latvian and Estonian partners contributed data and domain inputs used for methodological validation, but did not undertake replication or local implementation of the innovation developed in Slovakia.
+
+Extension of this work to additional country contexts was discussed among the partners, but could not be realised within the approved project timeline.
+
 {{< pagebreak >}}
 
 ## Introduction {#sec-introduction}
@@ -633,9 +641,7 @@ By deriving its technical structure from governance and policy constraints rathe
 
 This section presents an empirical application of the SKCMDb infrastructure to demonstrate how diversity- and locality-related indicators can be computed reproducibly, lawfully, and without exposing sensitive personal data. The case study applies the methodological, governance, and architectural principles developed in the preceding sections to an authoritative, real-world dataset: the official Slovak music charts. Its purpose is not to evaluate individual actors or enforce compliance, but to show how a shared reference infrastructure can support informed, voluntary, and legally robust engagement with cultural policy objectives.
 
-### Data sources and scope {#sec-case-study-data-source}
-
-### Case study: Slovak charts as an empirical testbed {#sec-case-study-data-source}
+### Case study: Slovak charts as an empirical testbed  {#sec-case-study-data-source}
 
 The empirical case study is based on the ingestion and evaluation of two official Slovak chart datasets: **SK – RADIO – TOP 100** and **SK – SINGLES DIGITAL – TOP 100**, using the 50th chart week as a reference point. These charts were added to the Slovak Comprehensive Music Database (SKCMDb) as complete, unfiltered corpora and evaluated against the two criteria defined in §215 of the Slovak Broadcasting Act: (a) authorship-based eligibility and (b) language-based eligibility.
 
